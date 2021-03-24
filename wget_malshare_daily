@@ -103,8 +103,9 @@ def pull_daily_list(sub_path):
 
         #r = requests.get(url, headers=user_agent)
         r = requests.get(url)
+        print(r.content)
         for line in r.content.split('\n'):
-            logging.debug("Yield line: %s" % line)
+            #logging.debug("Yield line: %s" % line)
             yield line
         logging.debug("No more lines")
 
