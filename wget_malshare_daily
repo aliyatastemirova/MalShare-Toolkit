@@ -86,7 +86,7 @@ def download_daily(vxcage, outfolder, sub_path):
         #os.chdir(args.outfolder)
     
     for md5_hash in pull_daily_list(sub_path):
-        if b"<!DOCTYPE HTML PUBLIC" in md5_hash:
+        if "<!DOCTYPE HTML PUBLIC" in md5_hash:
             print("%s doesn't exist! skip." % sub_path)
             os.rmdir(outfolder)
             break
@@ -105,7 +105,7 @@ def pull_daily_list(sub_path):
         for line in r.content.split(b'\n'):
             logging.debug("Yield line: %s" % line)
             print(line)
-            yield line
+            yield line.decode('utf8')
         logging.debug("No more lines")
 
     except Exception as e:
