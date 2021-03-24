@@ -19,7 +19,7 @@ def main():
     parser.add_argument("-o", "--outfile", help="Pull the most recent Malshare digest", required=True)
     args = parser.parse_args()
     
-    mal_digest = urllib2.urlopen(url='http://www.malshare.com/daily/malshare.current.txt')
+    mal_digest = urllib3.urlopen(url='http://www.malshare.com/daily/malshare.current.txt')
     mal_digest = list(mal_digest)
     pull_time = [str(date.today())] * len(mal_digest) 
     strip_list = [x.strip('\n') for x in mal_digest]
