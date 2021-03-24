@@ -73,7 +73,7 @@ def main():
             args.outfolder = date_str
     else:
         sub_path = 'malshare.current.txt'
-    print "sub_path", sub_path
+    print("sub_path", sub_path)
     #sys.exit(0)
 
     #download samples of this date
@@ -92,13 +92,13 @@ def download_daily(vxcage, outfolder, sub_path):
             break
         if (md5_hash):
             logging.info("Downloading %s" % md5_hash)
-            print md5_hash
+            print(md5_hash)
             pull_file(md5_hash, vxcage, outfolder)
 
 def pull_daily_list(sub_path):
     try:
         url = "http://www.malshare.com/daily/"+sub_path
-        print url
+        print(url)
         user_agent = {'User-agent': 'wget_malshare daily 1.0'}
 
         r = requests.get(url, headers=user_agent)
