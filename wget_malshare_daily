@@ -103,13 +103,13 @@ def pull_daily_list(sub_path):
 
         #r = requests.get(url, headers=user_agent)
         r = requests.get(url)
-        for line in r.content.split('\n'):
+        for line in r.content.split(b'\n'):
             #logging.debug("Yield line: %s" % line)
             print(line)
             yield line
         logging.debug("No more lines")
 
-    except:
+    except Exception as e:
         logging.error("Problem connecting.  Please Try again.")
         logging.exception(sys.exc_info())
         logging.exception(type(e))
